@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "functions": {
       "api/**/*": {
         "runtime": "nodejs18.x"
@@ -6,3 +7,11 @@
     }
   }
   
+=======
+  "functions": {
+    "api/**/*": {
+      "runtime": "nodejs18.x"
+    }
+  }
+}
+>>>>>>> aafbb7b067aa2ec03becc567dffaa1fa971714a3
