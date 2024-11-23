@@ -1,0 +1,58 @@
+---
+import Layout from '../layouts/Layout.astro';
+import CountdownTimer from '../components/CountdownTimer';
+import StudentTable from '../components/StudentTable.astro';
+import WalkingSanta from '../components/WalkingSanta.astro';
+
+// Set your deadline here
+const deadline = new Date('2024-11-27T23:59:59');
+---
+
+<Layout title="Cuota Navideña Solidaria 🎅">
+  <main>
+    <h1>🎄 Cuota Navideña Solidaria 🎅</h1>
+    <h4 style="text-align: center; color: white;">ESCUELA PROFESIONAL DE INGENIERÍA DE SISTEMAS E INFORMÁTICA</h4>
+    <div class="deadline-info">
+      <h2>Tiempo restante hasta la fecha límite</h2>
+      <CountdownTimer client:load targetDate={deadline} />
+    </div>
+
+    <div class="content">
+      <h2>Estado de pago del estudiante</h2>
+      <StudentTable />
+    </div>
+
+    <WalkingSanta />
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    text-align: center;
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  }
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .deadline-info {
+    margin-bottom: 3rem;
+  }
+
+  .content {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 12px;
+    backdrop-filter: blur(10px);
+  }
+</style>

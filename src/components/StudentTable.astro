@@ -1,0 +1,137 @@
+---
+interface Student {
+  id: number;
+  name: string;
+  hasPaid: boolean;
+  paymentDate?: string;
+}
+
+const students: Student[] = [
+  { id: 1, name: "ADUVIRE ZAPANA JACKELIN ROSMERI", hasPaid: false, paymentDate: "" },
+  { id: 2, name: "ALVAREZ FLORES FRANK ERIK", hasPaid: false },
+  { id: 3, name: "AMESQUITA CHAMBILLA HANS LUT", hasPaid: false },
+  { id: 4, name: "ARUHUANCA FLORES EMMANUEL DAVID", hasPaid: false },
+  { id: 5, name: "ATENCIO CCALLALLA MOISES RONALDO", hasPaid: true, paymentDate: "22-11-2024" },
+  { id: 6, name: "BENEGAS HUANACUNI ANGIE JHADIRA", hasPaid: false },
+  { id: 7, name: "CABRERA QUISPE DAYMER", hasPaid: false },
+  { id: 8, name: "CALIZAYA POMA SEBASTIAN DAVID", hasPaid: false },
+  { id: 9, name: "CAMARGO MAMANI JEFFERSON ALDAIR", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 10, name: "CAYO MOLLONI FIORELA", hasPaid: false, paymentDate: "22-11-2024" },
+  { id: 11, name: "CCAMA MAMANI NESTOR JESUS", hasPaid: false },
+  { id: 12, name: "CCASO CARBAJAL IVAN ALVARO", hasPaid: false },
+  { id: 13, name: "CHAIÑA FERNANDEZ FRANCIS RAYMOND", hasPaid: true, paymentDate: "22-11-2024" },
+  { id: 14, name: "CHOQUE ESPINOZA MATHIAS RODRIGO", hasPaid: false },
+  { id: 15, name: "CHOQUEPIUNTA MACHACA MARIA STEFANY", hasPaid: false },
+  { id: 16, name: "CHOQUEZA MAMANI PLINED OSCAR", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 17, name: "CHUMBILLA CHURATA YASMINA", hasPaid: false },
+  { id: 18, name: "CHURA ALAY GUSTAVO", hasPaid: false },
+  { id: 19, name: "COLLANQUI CASAPIA ELMER ANDRES", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 20, name: "COLQUE CLAROS MAHICOL YUNIOR", hasPaid: false },
+  { id: 21, name: "CORONEL CABRERA EDWARD JUNIOR", hasPaid: false },
+  { id: 22, name: "COTRADO ZAPANA ANDREE CRISTIAN", hasPaid: false },
+  { id: 23, name: "FERNANDEZ CHIRINOS MAURICIO ALESSANDRO", hasPaid: false },
+  { id: 24, name: "FLORES VIZCARRA MIA VERONICA", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 25, name: "GALLEGOS MAMANI EDUARDO ADRIAN", hasPaid: false , paymentDate: "22-11-2024"},
+  { id: 26, name: "HILA MAMANI RENZO JHOEL", hasPaid: false },
+  { id: 27, name: "HUAHUACHAMPI MAMANI SAUL JHOEL", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 28, name: "HUAMAN YLLA JUAN DIEGO", hasPaid: true, paymentDate: "22-11-2024" },
+  { id: 29, name: "HUAÑEC ARGUEDAS GABRIEL ALONZO", hasPaid: false },
+  { id: 30, name: "LOVON TICONA MARLON RAUL", hasPaid: false },
+  { id: 31, name: "MAMANI GOMEZ GERALDINE SOLEDAD", hasPaid: false },
+  { id: 32, name: "MARCA GOMEZ FRANCO", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 33, name: "MARON ACERO GUIDO", hasPaid: false },
+  { id: 34, name: "MENDOZA CATARI GABRIEL ISIDORO", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 35, name: "NINA CHUNGA MARCELO LERHOY", hasPaid: false },
+  { id: 36, name: "NINA CRUZ MARCO", hasPaid: false },
+  { id: 37, name: "NINA ESCOBAR YORKHA LOURDES", hasPaid: false },
+  { id: 38, name: "PAITAN VELEZ DORCAS JULIETA", hasPaid: false },
+  { id: 39, name: "PANCA ESCARCENA GUIDO DAVID", hasPaid: false },
+  { id: 40, name: "PEÑALOZA CERRATO DIEGO HUBERT", hasPaid: true, paymentDate: "22-11-2024" },
+  { id: 41, name: "PERAZA MAMANI BRANDON ANDRES", hasPaid: false },
+  { id: 42, name: "QUISPE LLANQUE JOSUE DANIEL", hasPaid: false },
+  { id: 43, name: "QUISPE RAMOS EVER", hasPaid: false, paymentDate: "22-11-2024" },
+  { id: 44, name: "QUISPE VARGAS LUCERO PRISCILA", hasPaid: true, paymentDate: "21-11-2024" },
+  { id: 45, name: "RAMOS AROCUTIPA BRAYAN ERIK", hasPaid: true,paymentDate: "21-11-2024" },
+  { id: 46, name: "RAMOS TORRES MARCELO GABRIEL", hasPaid: true, paymentDate: "22-11-2024" },
+  { id: 47, name: "ROMUCHO SULLCAHUAMAN PAOLA CELESTE", hasPaid: false },
+  { id: 48, name: "ROMUCHO SULLCAHUAMAN VICTOR MANUEL", hasPaid: false },
+  { id: 49, name: "SANCHEZ RAMOS PATRICK DANIEL", hasPaid: false },
+  { id: 50, name: "TORRES CARI DIEGO FABRIZZIO RENATO", hasPaid: false },
+  { id: 51, name: "VARGAS MAMANI ALMIR CARLOS", hasPaid: true, paymentDate: "21-11-2024" },
+];
+
+---
+
+<div class="student-table">
+  <table>
+    <thead>
+      <tr>
+        <th>Nombre del estudiante</th>
+        <th>Estado</th>
+        <th>Fecha de pago</th>
+      </tr>
+    </thead>
+    <tbody>
+      {students.map((student) => (
+        <tr class={student.hasPaid ? 'paid' : 'unpaid'}>
+          <td>{student.name}</td>
+          <td>
+            <span class={`status ${student.hasPaid ? 'paid' : 'unpaid'}`}>
+              {student.hasPaid ? '✅ Pagado' : '❌ Pendiente'}
+            </span>
+          </td>
+          <td>{student.paymentDate || '-'}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>
+
+<style>
+  .student-table {
+    background: white;
+    border-radius: 8px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  th, td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  th {
+    background: #f8f9fa;
+    font-weight: 600;
+  }
+
+  .status {
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+  }
+
+  .status.paid {
+    background: #e6f4ea;
+    color: #1e7e34;
+  }
+
+  .status.unpaid {
+    background: #fbe9e7;
+    color: #d32f2f;
+  }
+
+  tr.paid {
+    background: #fcfcfc;
+  }
+
+  tr.unpaid {
+    background: #fff;
+  }
+</style>
